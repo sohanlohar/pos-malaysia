@@ -22,7 +22,7 @@ interface FormValues {
   pantasKodKKWT: string;
   postingKey: string;
   financialStatus: string;
-  commissionProductCode: string;
+  // commissionProductCode: string;
   cash: string;
   debitCard: string;
   creditCardNotOnUs: string;
@@ -67,7 +67,7 @@ interface FormValues {
   gSTInclusive2: string;
   documentType2: string;
   postingKey4: string;
-  accountCode3: string;
+  accountCodePrd3: string;
   postingKey5: string;
   accountCode4: string;
   rate3: string;
@@ -114,7 +114,7 @@ const TablesWidget13: React.FC<Props> = ({ className }) => {
     { label: "Pantas Kod KKWT", accessor: "pantasKodKKWT" },
     { label: "Posting Key", accessor: "postingKey" },
     { label: "Financial Status", accessor: "financialStatus" },
-    { label: "Commission Product Code", accessor: "commissionProductCode" },
+    // { label: "Commission Product Code", accessor: "commissionProductCode" },
     { label: "Cash", accessor: "cash" },
     { label: "Debit Card", accessor: "debitCard" },
     { label: "Credit Card Not On Us", accessor: "creditCardNotOnUs" },
@@ -159,7 +159,7 @@ const TablesWidget13: React.FC<Props> = ({ className }) => {
     { label: "GST Inclusive 2", accessor: "gSTInclusive2" },
     { label: "Document Type 2", accessor: "documentType2" },
     { label: "Posting Key 4", accessor: "postingKey4" },
-    { label: "Account Code 3", accessor: "accountCode3" },
+    { label: "Account Code PRD", accessor: "accountCodePrd3" },
     { label: "Posting Key 5", accessor: "postingKey5" },
     { label: "Account Code 4", accessor: "accountCode4" },
     { label: "Rate 3", accessor: "rate3" },
@@ -177,7 +177,7 @@ const TablesWidget13: React.FC<Props> = ({ className }) => {
 
   useEffect(() => {
     if (visibleColumns.length === 0) {
-      const defaultColumns = columns.slice(0, 3).map((col) => col.accessor);
+      const defaultColumns = columns.slice(0, 6).map((col) => col.accessor);
       dispatch(setVisibleColumns(defaultColumns));
     }
   }, [dispatch, columns, visibleColumns]);
@@ -241,13 +241,7 @@ const TablesWidget13: React.FC<Props> = ({ className }) => {
         setSelectedProduct={setSelectedProduct}
       />
       <div className={`card ${className}`}>
-        <div className="card-header border-0 pt-5 align-items-end">
-          <h3 className="card-title align-items-start flex-column">
-            <span className="card-label fw-bold fs-3 mb-1">Recent Orders</span>
-            <span className="text-muted mt-1 fw-semibold fs-7">
-              Over {formData.length} orders
-            </span>
-          </h3>
+        <div className="card-header border-0 pt-5 align-items-start justify-content-end">
           <button
             className="btn btn-primary btn-sm"
             onClick={() => setIsModalOpen(true)}
@@ -278,13 +272,6 @@ const TablesWidget13: React.FC<Props> = ({ className }) => {
                           return <td key={colKey}>{data[colKey]}</td>;
                         })}
                         <td key="actions" className="d-flex gap-2">
-                          <button
-                            className="btn btn-icon btn-sm btn-primary me-2"
-                            onClick={() => handleEdit(data, index)}
-                          >
-                            <i className="fa-regular fa-eye"></i>
-                          </button>
-
                           <button
                             className="btn btn-icon btn-sm btn-warning me-2"
                             onClick={() => handleEdit(data, index)}

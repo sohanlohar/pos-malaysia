@@ -48,6 +48,9 @@
     font-size: 1rem;
   }
   .mw-900px {
-    max-width: 80% !important;
+    max-width: 90% !important;
+  }
+  select.floating-label-input {
+    appearance: auto;
   }
   

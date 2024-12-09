@@ -2,7 +2,6 @@ import { ErrorMessage, Field, useFormikContext } from "formik";
 import { useEffect, useState } from "react";
 
 const Step1 = ({ selectedProduct, isEdited }: any) => {
-
   const { setFieldValue } = useFormikContext();
 
   const [fieldFocus, setFieldFocus] = useState({
@@ -17,7 +16,7 @@ const Step1 = ({ selectedProduct, isEdited }: any) => {
     pantasKodKKWT: false,
     postingKey: false,
     financialStatus: false,
-    commissionProductCode: false,
+    // commissionProductCode: false,
   });
 
   useEffect(() => {
@@ -353,7 +352,7 @@ const Step1 = ({ selectedProduct, isEdited }: any) => {
           />
         </div>
 
-        <div className="col-md-4 mb-4 floating-label-container">
+        {/* <div className="col-md-4 mb-4 floating-label-container">
           <Field
             name="commissionProductCode"
             type="text"
@@ -379,7 +378,7 @@ const Step1 = ({ selectedProduct, isEdited }: any) => {
             component="div"
             className="error-message"
           />
-        </div>
+        </div> */}
       </div>
     </>
   );

@@ -15,7 +15,13 @@ import {
   step1ValidationSchema,
   step2ValidationSchema,
   step3ValidationSchema,
+  step4ValidationSchema,
+  step5ValidationSchema,
+  step6ValidationSchema,
 } from "./validationSchemas";
+import { Step4 } from "./steps/Step4";
+import { Step5 } from "./steps/Step5";
+import { Step6 } from "./steps/Step6";
 
 interface FormValues {
   productCode: string;
@@ -29,7 +35,7 @@ interface FormValues {
   pantasKodKKWT: string;
   postingKey: string;
   financialStatus: string;
-  commissionProductCode: string;
+  // commissionProductCode: string;
   cash: string;
   debitCard: string;
   creditCardNotOnUs: string;
@@ -74,7 +80,7 @@ interface FormValues {
   gSTInclusive2: string;
   documentType2: string;
   postingKey4: string;
-  accountCode3: string;
+  accountCodePrd3: string;
   postingKey5: string;
   accountCode4: string;
   rate3: string;
@@ -124,7 +130,7 @@ const AddProductModel = ({
     pantasKodKKWT: "",
     postingKey: "",
     financialStatus: "",
-    commissionProductCode: "",
+    // commissionProductCode: "",
     cash: "",
     debitCard: "",
     creditCardNotOnUs: "",
@@ -169,7 +175,7 @@ const AddProductModel = ({
     gSTInclusive2: "",
     documentType2: "",
     postingKey4: "",
-    accountCode3: "",
+    accountCodePrd3: "",
     postingKey5: "",
     accountCode4: "",
     rate3: "",
@@ -202,11 +208,21 @@ const AddProductModel = ({
     step1ValidationSchema,
     step2ValidationSchema,
     step3ValidationSchema,
+    step4ValidationSchema,
+    step5ValidationSchema,
+    step6ValidationSchema,
   ][step - 1];
 
-  const isLastStep = step === 3;
+  const isLastStep = step === 6;
 
-  const stepLabels = ["Product Details", "Payment Method", "Other's"];
+  const stepLabels = [
+    "Product Details",
+    "Payment Method",
+    "Loyalty Scheme",
+    "Pricing",
+    "Transaction Level",
+    "Commission",
+  ];
 
   return createPortal(
     <Modal
@@ -265,6 +281,7 @@ const AddProductModel = ({
             validateOnChange={true}
             validateOnBlur={true}
             onSubmit={(values) => {
+              console.log("step6ValidationSchema", values);
               if (isLastStep) {
                 handleSubmitFn(values);
               } else {
@@ -279,7 +296,7 @@ const AddProductModel = ({
                 }
               }, [initialValues, isEdited, resetForm, setTouched]);
               return (
-                <Form>
+                <Form className="pt-4">
                   {step === 1 && (
                     <Step1
                       selectedProduct={selectedProduct}
@@ -294,6 +311,24 @@ const AddProductModel = ({
                   )}
                   {step === 3 && (
                     <Step3
+                      selectedProduct={selectedProduct}
+                      isEdited={isEdited}
+                    />
+                  )}
+                  {step === 4 && (
+                    <Step4
+                      selectedProduct={selectedProduct}
+                      isEdited={isEdited}
+                    />
+                  )}
+                  {step === 5 && (
+                    <Step5
+                      selectedProduct={selectedProduct}
+                      isEdited={isEdited}
+                    />
+                  )}
+                  {step === 6 && (
+                    <Step6
                       selectedProduct={selectedProduct}
                       isEdited={isEdited}
                     />
