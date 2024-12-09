@@ -1,5 +1,5 @@
 import { Form, Formik } from "formik";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Modal } from "react-bootstrap";
 import { createPortal } from "react-dom";
 import { useDispatch } from "react-redux";
@@ -261,10 +261,9 @@ const AddProductModel = ({
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
-            enableReinitialize // Allows the form to reinitialize when initialValues change
-            validateOnMount={!isEdited} // Prevents validation on mount in edit mode
-            validateOnChange={true} // Enables validation on field changes
-            validateOnBlur={true} // Enables validation when fields lose focus
+            enableReinitialize
+            validateOnChange={true}
+            validateOnBlur={true}
             onSubmit={(values) => {
               if (isLastStep) {
                 handleSubmitFn(values);
@@ -273,43 +272,50 @@ const AddProductModel = ({
               }
             }}
           >
-            {() => (
-              <Form>
-                {step === 1 && (
-                  <Step1
-                    selectedProduct={selectedProduct}
-                    isEdited={isEdited}
-                  />
-                )}
-                {step === 2 && (
-                  <Step2
-                    selectedProduct={selectedProduct}
-                    isEdited={isEdited}
-                  />
-                )}
-                {step === 3 && (
-                  <Step3
-                    selectedProduct={selectedProduct}
-                    isEdited={isEdited}
-                  />
-                )}
-
-                <div className="d-flex justify-content-end mt-4">
-                  {step > 1 && (
-                    <button
-                      type="button"
-                      className="btn btn-sm btn-light-primary me-3"
-                      onClick={handlePrevious}
-                    >
-                      Back
-                    </button>
+            {({ setTouched, resetForm }) => {
+              useEffect(() => {
+                if (isEdited) {
+                  setTouched({});
+                }
+              }, [initialValues, isEdited, resetForm, setTouched]);
+              return (
+                <Form>
+                  {step === 1 && (
+                    <Step1
+                      selectedProduct={selectedProduct}
+                      isEdited={isEdited}
+                    />
                   )}
-                  <button type="submit" className="btn btn-sm btn-primary">
-                    {isLastStep ? "Submit" : "Next"}
-                  </button>
-                </div>
-              </Form>
-            )}
+                  {step === 2 && (
+                    <Step2
+                      selectedProduct={selectedProduct}
+                      isEdited={isEdited}
+                    />
+                  )}
+                  {step === 3 && (
+                    <Step3
+                      selectedProduct={selectedProduct}
+                      isEdited={isEdited}
+                    />
+                  )}
+
+                  <div className="d-flex justify-content-end mt-4">
+                    {step > 1 && (
+                      <button
+                        type="button"
+                        className="btn btn-sm btn-light-primary me-3"
+                        onClick={handlePrevious}
+                      >
+                        Back
+                      </button>
+                    )}
+                    <button type="submit" className="btn btn-sm btn-primary">
+                      {isLastStep ? "Submit" : "Next"}
+                    </button>
+                  </div>
+                </Form>
+              );
+            }}
           </Formik>
         </div>
       </div>

@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 
 const Step1 = ({ selectedProduct, isEdited }: any) => {
 
-  console.log("isEdited", isEdited, selectedProduct)
   const { setFieldValue } = useFormikContext();
 
   const [fieldFocus, setFieldFocus] = useState({

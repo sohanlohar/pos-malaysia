@@ -2,16 +2,17 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import formReducer from "./poslajuProductSlice";
-import reducer from "./poslajuProductSlice";
+import columnReducer from "./columnSlice";
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ['poslajuProduct'] // only navigation will be persisted
+  whitelist: ["poslajuProduct", "columns"],
 };
 
 const rootReducer = combineReducers({
   poslajuProduct: formReducer,
+  columns: columnReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
