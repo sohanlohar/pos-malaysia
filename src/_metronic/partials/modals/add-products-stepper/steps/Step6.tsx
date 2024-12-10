@@ -1,7 +1,7 @@
 import { ErrorMessage, Field, useFormikContext } from "formik";
 import { useEffect, useState } from "react";
 
-const Step6 = ({ selectedProduct }: any) => {
+const Step6 = ({ selectedProduct, isEdited }: any) => {
   const { setFieldValue } = useFormikContext();
 
   useEffect(() => {
@@ -27,13 +27,13 @@ const Step6 = ({ selectedProduct }: any) => {
         }
       });
     }
-  }, [selectedProduct, setFieldValue]);
+  }, [selectedProduct, isEdited]);
 
   return (
     <>
       <div className="row">
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="documentType2">Document Type</label>
+          {isEdited && <label htmlFor="documentType2">Document Type</label>}
           <Field
             name="documentType2"
             type="text"
@@ -48,7 +48,7 @@ const Step6 = ({ selectedProduct }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="postingKey4">Posting Key</label>
+          {isEdited && <label htmlFor="postingKey4">Posting Key</label>}
           <Field
             name="postingKey4"
             type="text"
@@ -63,7 +63,9 @@ const Step6 = ({ selectedProduct }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="accountCodePrd3">Account Code PRD</label>
+          {isEdited && (
+            <label htmlFor="accountCodePrd3">Account Code PRD</label>
+          )}
           <Field
             name="accountCodePrd3"
             type="text"
@@ -78,7 +80,7 @@ const Step6 = ({ selectedProduct }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="postingKey5">Posting Key</label>
+          {isEdited && <label htmlFor="postingKey5">Posting Key</label>}
           <Field
             name="postingKey5"
             type="text"
@@ -93,7 +95,7 @@ const Step6 = ({ selectedProduct }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="accountCode4">Account Code</label>
+          {isEdited && <label htmlFor="accountCode4">Account Code</label>}
           <Field
             name="accountCode4"
             type="text"
@@ -108,7 +110,7 @@ const Step6 = ({ selectedProduct }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="rate3">Rate</label>
+          {isEdited && <label htmlFor="rate3">Rate</label>}
           <Field
             name="rate3"
             type="text"
@@ -123,7 +125,7 @@ const Step6 = ({ selectedProduct }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="rule">Rule</label>
+          {isEdited && <label htmlFor="rule">Rule</label>}
           <Field
             name="rule"
             type="text"
@@ -134,11 +136,14 @@ const Step6 = ({ selectedProduct }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="GSTEffectiveDate3">GST Effective Date</label>
+          {isEdited && (
+            <label htmlFor="GSTEffectiveDate3">GST Effective Date</label>
+          )}
           <Field
             name="GSTEffectiveDate3"
             type="date"
             className="form-control floating-label-input"
+             placeholder="GST Effective Date"
           />
           <ErrorMessage
             name="GSTEffectiveDate3"
@@ -148,11 +153,12 @@ const Step6 = ({ selectedProduct }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="gSTTaxCode3">GST Tax Code</label>
+          {isEdited && <label htmlFor="gSTTaxCode3">GST Tax Code</label>}
           <Field
             name="gSTTaxCode3"
             type="text"
             className="form-control floating-label-input"
+             placeholder="GST Effective Date"
           />
           <ErrorMessage
             name="gSTTaxCode3"
@@ -162,11 +168,14 @@ const Step6 = ({ selectedProduct }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="paymentFrequency">Payment Frequency</label>
+          {isEdited && (
+            <label htmlFor="paymentFrequency">Payment Frequency</label>
+          )}
           <Field
             name="paymentFrequency"
             type="text"
             className="form-control floating-label-input"
+             placeholder="Payment Frequency"
           />
           <ErrorMessage
             name="paymentFrequency"
@@ -176,11 +185,14 @@ const Step6 = ({ selectedProduct }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="grossNetPayment">Gross / net payment</label>
+          {isEdited && (
+            <label htmlFor="grossNetPayment">Gross / net payment</label>
+          )}
           <Field
             name="grossNetPayment"
             type="text"
             className="form-control floating-label-input"
+             placeholder="Gross / net payment"
           />
           <ErrorMessage
             name="grossNetPayment"
@@ -190,11 +202,14 @@ const Step6 = ({ selectedProduct }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="gSTInclusive">GST inclusive (1,0)</label>
+          {isEdited && (
+            <label htmlFor="gSTInclusive">GST inclusive (1,0)</label>
+          )}
           <Field
             name="gSTInclusive"
             type="text"
             className="form-control floating-label-input"
+             placeholder="GST inclusive (1,0)"
           />
           <ErrorMessage
             name="gSTInclusive"

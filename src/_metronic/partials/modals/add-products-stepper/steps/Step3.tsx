@@ -1,7 +1,7 @@
 import { ErrorMessage, Field, useFormikContext } from "formik";
 import { useEffect, useState } from "react";
 
-const Step3 = ({ selectedProduct }: any) => {
+const Step3 = ({ selectedProduct, isEdited }: any) => {
   const { setFieldValue } = useFormikContext();
 
   useEffect(() => {
@@ -14,13 +14,15 @@ const Step3 = ({ selectedProduct }: any) => {
         }
       });
     }
-  }, [selectedProduct, setFieldValue]);
+  }, [selectedProduct, isEdited]);
 
   return (
     <>
       <div className="row">
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="posLoyaltyReward">Pos Loyalty Reward</label>
+          {isEdited && (
+            <label htmlFor="posLoyaltyReward">Pos Loyalty Reward</label>
+          )}
           <Field
             as="select"
             name="posLoyaltyReward"
@@ -40,7 +42,7 @@ const Step3 = ({ selectedProduct }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="realRewards">Real Rewards</label>
+          {isEdited && <label htmlFor="realRewards">Real Rewards</label>}
           <Field
             name="realRewards"
             type="text"

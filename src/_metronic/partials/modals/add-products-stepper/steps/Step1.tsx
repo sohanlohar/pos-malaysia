@@ -2,6 +2,7 @@ import { ErrorMessage, Field, useFormikContext } from "formik";
 import { useEffect } from "react";
 
 const Step1 = ({ selectedProduct, isEdited }: any) => {
+  console.log("isEdited", isEdited);
   const { setFieldValue } = useFormikContext();
 
   useEffect(() => {
@@ -31,7 +32,7 @@ const Step1 = ({ selectedProduct, isEdited }: any) => {
     <>
       <div className="d-flex flex-row justify-content-between gap-4">
         <div className="fv-row mb-4 flex-fill floating-label-container w-25">
-          <label htmlFor="productCode">Product Code</label>
+          {isEdited && <label htmlFor="productCode">Product Code</label>}
           <Field
             name="productCode"
             type="text"
@@ -46,7 +47,9 @@ const Step1 = ({ selectedProduct, isEdited }: any) => {
         </div>
 
         <div className="fv-row mb-4 flex-fill floating-label-container w-75">
-          <label htmlFor="productDescription">Product Description</label>
+          {isEdited && (
+            <label htmlFor="productDescription">Product Description</label>
+          )}
           <Field
             name="productDescription"
             type="text"
@@ -62,7 +65,7 @@ const Step1 = ({ selectedProduct, isEdited }: any) => {
       </div>
       <div className="d-flex flex-row justify-content-between gap-4">
         <div className="fv-row mb-4 flex-fill floating-label-container w-25">
-          <label htmlFor="parentCode">Parent Code</label>
+          {isEdited && <label htmlFor="parentCode">Parent Code</label>}
           <Field
             name="parentCode"
             type="text"
@@ -77,7 +80,9 @@ const Step1 = ({ selectedProduct, isEdited }: any) => {
         </div>
 
         <div className="fv-row mb-4 flex-fill floating-label-container w-75">
-          <label htmlFor="parentDescription">Parent Description</label>
+          {isEdited && (
+            <label htmlFor="parentDescription">Parent Description</label>
+          )}
           <Field
             name="parentDescription"
             type="text"
@@ -93,7 +98,9 @@ const Step1 = ({ selectedProduct, isEdited }: any) => {
       </div>
       <div className="row">
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="shortDisplayName">Short Display Name</label>
+          {isEdited && (
+            <label htmlFor="shortDisplayName">Short Display Name</label>
+          )}
           <Field
             name="shortDisplayName"
             type="text"
@@ -108,9 +115,11 @@ const Step1 = ({ selectedProduct, isEdited }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="glCustomerVendorDescription">
-            GL Customer Vendor Description
-          </label>
+          {isEdited && (
+            <label htmlFor="glCustomerVendorDescription">
+              GL Customer Vendor Description
+            </label>
+          )}
           <Field
             name="glCustomerVendorDescription"
             type="text"
@@ -125,7 +134,7 @@ const Step1 = ({ selectedProduct, isEdited }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="agencyName1">Agency Name 1</label>
+          {isEdited && <label htmlFor="agencyName1">Agency Name 1</label>}
           <Field
             name="agencyName1"
             type="text"
@@ -140,7 +149,7 @@ const Step1 = ({ selectedProduct, isEdited }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="agencyName2">Agency Name 2</label>
+          {isEdited && <label htmlFor="agencyName2">Agency Name 2</label>}
           <Field
             name="agencyName2"
             type="text"
@@ -155,7 +164,7 @@ const Step1 = ({ selectedProduct, isEdited }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="pantasKodKKWT">Pantas Kod KKWT</label>
+          {isEdited && <label htmlFor="pantasKodKKWT">Pantas Kod KKWT</label>}
           <Field
             name="pantasKodKKWT"
             type="text"
@@ -170,7 +179,7 @@ const Step1 = ({ selectedProduct, isEdited }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="postingKey">Posting Key SAP</label>
+          {isEdited && <label htmlFor="postingKey">Posting Key SAP</label>}
           <Field
             name="postingKey"
             type="text"
@@ -185,7 +194,9 @@ const Step1 = ({ selectedProduct, isEdited }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="financialStatus">Select Financial Status</label>
+          {isEdited && (
+            <label htmlFor="financialStatus">Select Financial Status</label>
+          )}
           <Field
             as="select"
             name="financialStatus"
@@ -209,4 +220,3 @@ const Step1 = ({ selectedProduct, isEdited }: any) => {
 };
 
 export { Step1 };
-

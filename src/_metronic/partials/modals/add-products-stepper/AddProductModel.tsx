@@ -278,10 +278,9 @@ const AddProductModel = ({
             initialValues={initialValues}
             validationSchema={validationSchema}
             enableReinitialize
-            validateOnChange={true}
-            validateOnBlur={true}
+            validateOnChange={false}
+            validateOnBlur={false}
             onSubmit={(values) => {
-              console.log("step6ValidationSchema", values);
               if (isLastStep) {
                 handleSubmitFn(values);
               } else {

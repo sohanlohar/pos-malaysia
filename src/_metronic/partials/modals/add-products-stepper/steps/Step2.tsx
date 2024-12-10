@@ -1,7 +1,7 @@
 import { ErrorMessage, Field, useFormikContext } from "formik";
 import { useEffect, useState } from "react";
 
-const Step2 = ({ selectedProduct }: any) => {
+const Step2 = ({ selectedProduct, isEdited }: any) => {
   const { setFieldValue } = useFormikContext();
 
   useEffect(() => {
@@ -30,13 +30,13 @@ const Step2 = ({ selectedProduct }: any) => {
         }
       });
     }
-  }, [selectedProduct, setFieldValue]);
+  }, [selectedProduct, isEdited]);
 
   return (
     <>
       <div className="row">
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="cash">Cash</label>
+          {isEdited && <label htmlFor="cash">Cash</label>}
           <Field
             as="select"
             name="cash"
@@ -52,7 +52,9 @@ const Step2 = ({ selectedProduct }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="creditCardOnUs">Credit Card (On us)</label>
+          {isEdited && (
+            <label htmlFor="creditCardOnUs">Credit Card (On us)</label>
+          )}
           <Field
             as="select"
             name="creditCardOnUs"
@@ -72,7 +74,9 @@ const Step2 = ({ selectedProduct }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="creditCardNotOnUs">Credit Card (Not on Us)</label>
+          {isEdited && (
+            <label htmlFor="creditCardNotOnUs">Credit Card (Not on Us)</label>
+          )}
           <Field
             as="select"
             name="creditCardNotOnUs"
@@ -92,7 +96,7 @@ const Step2 = ({ selectedProduct }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="debitCard">Select Debit Card</label>
+          {isEdited && <label htmlFor="debitCard">Select Debit Card</label>}
           <Field
             as="select"
             name="debitCard"
@@ -112,7 +116,7 @@ const Step2 = ({ selectedProduct }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="cheque">Cheque</label>
+          {isEdited && <label htmlFor="cheque">Cheque</label>}
           <Field
             as="select"
             name="cheque"
@@ -132,7 +136,7 @@ const Step2 = ({ selectedProduct }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="bankersCheque">Banker's Cheque</label>
+          {isEdited && <label htmlFor="bankersCheque">Banker's Cheque</label>}
           <Field
             as="select"
             name="bankersCheque"
@@ -152,7 +156,7 @@ const Step2 = ({ selectedProduct }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="imprest">Imprest</label>
+          {isEdited && <label htmlFor="imprest">Imprest</label>}
           <Field
             as="select"
             name="imprest"
@@ -172,7 +176,7 @@ const Step2 = ({ selectedProduct }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="lpo">LPO</label>
+          {isEdited && <label htmlFor="lpo">LPO</label>}
           <Field
             as="select"
             name="lpo"
@@ -188,7 +192,7 @@ const Step2 = ({ selectedProduct }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="soda">SoDA</label>
+          {isEdited && <label htmlFor="soda">SoDA</label>}
           <Field
             name="soda"
             type="text"
@@ -199,7 +203,7 @@ const Step2 = ({ selectedProduct }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="irc">IRC</label>
+          {isEdited && <label htmlFor="irc">IRC</label>}
           <Field
             name="irc"
             type="text"
@@ -210,7 +214,7 @@ const Step2 = ({ selectedProduct }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="touchNGo">Select Touch N Go</label>
+          {isEdited && <label htmlFor="touchNGo">Select Touch N Go</label>}
           <Field
             as="select"
             name="touchNGo"
@@ -230,7 +234,9 @@ const Step2 = ({ selectedProduct }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="deferredPayment">Select Deferred Payment</label>
+          {isEdited && (
+            <label htmlFor="deferredPayment">Select Deferred Payment</label>
+          )}
           <Field
             as="select"
             name="deferredPayment"
@@ -250,7 +256,7 @@ const Step2 = ({ selectedProduct }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="voucher">Voucher (to be)</label>
+          {isEdited && <label htmlFor="voucher">Voucher (to be)</label>}
           <Field
             as="select"
             name="voucher"
@@ -270,7 +276,7 @@ const Step2 = ({ selectedProduct }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="eWallet">eWallet</label>
+          {isEdited && <label htmlFor="eWallet">eWallet</label>}
           <Field
             as="select"
             name="eWallet"
@@ -290,7 +296,7 @@ const Step2 = ({ selectedProduct }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          <label htmlFor="qRPay">QR Pay</label>
+          {isEdited && <label htmlFor="qRPay">QR Pay</label>}
           <Field
             as="select"
             name="qRPay"
