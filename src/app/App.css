@@ -1,56 +1,30 @@
 /* Floating Label Container */
-.floating-label-container {
-    position: relative;
-  }
-  
-  /* Input Field */
-  .floating-label-input {
-    padding: 0.75rem 1rem;
-    font-size: 1rem;
-  }
-  
-  /* Label */
-  .floating-label {
-    position: absolute;
-    top: 50%;
-    left: 0.75rem;
-    transform: translateY(-50%);
-    font-size: 1rem;
-    color: gray;
-    transition: all 0.2s ease-in-out;
-    pointer-events: none;
-    background-color: transparent;
-    padding: 0;
-    visibility: hidden;
-  }
-  
-  /* Label Active State */
-  .floating-label.active {
-    top: 0;
-    font-size: 0.75rem;
-    color: gray;
-    background-color: white;
-    padding: 0 0.25rem;
-    visibility: visible;
-  }
-  
-  /* Error Message */
-  .error-message {
-    color: red;
-    margin-top: 0.25rem;
-    font-size: 0.875rem;
-  }
-  
-  .stepper.stepper-pills .stepper-item .stepper-icon {
-    margin-right: 0;
-  }
-  .stepper.stepper-pills .stepper-item .stepper-label .stepper-title {
-    font-size: 1rem;
-  }
-  .mw-900px {
-    max-width: 90% !important;
-  }
-  select.floating-label-input {
-    appearance: auto;
-  }
-  
+.floating-label-container label {
+  font-weight: 500;
+}
+
+/* Input Field */
+.floating-label-input {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+}
+
+/* Error Message */
+.error-message {
+  color: red;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.stepper.stepper-pills .stepper-item .stepper-icon {
+  margin-right: 0;
+}
+.stepper.stepper-pills .stepper-item .stepper-label .stepper-title {
+  font-size: 1rem;
+}
+.mw-900px {
+  max-width: 90% !important;
+}
+select.floating-label-input {
+  appearance: auto;
+}

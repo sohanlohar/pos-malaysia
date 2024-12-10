@@ -296,7 +296,7 @@ const AddProductModel = ({
                 }
               }, [initialValues, isEdited, resetForm, setTouched]);
               return (
-                <Form className="pt-4">
+                <Form className="pt-10">
                   {step === 1 && (
                     <Step1
                       selectedProduct={selectedProduct}
