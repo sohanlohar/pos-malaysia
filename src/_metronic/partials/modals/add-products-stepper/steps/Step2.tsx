@@ -43,7 +43,7 @@ const Step2 = ({ selectedProduct, isEdited }: any) => {
             className="form-control floating-label-input"
           >
             <option value="" disabled>
-              Select Cash Option
+              Cash
             </option>
             <option value="Yes">Yes</option>
             <option value="No">No</option>
@@ -53,7 +53,7 @@ const Step2 = ({ selectedProduct, isEdited }: any) => {
 
         <div className="col-md-4 mb-4 floating-label-container">
           {isEdited && (
-            <label htmlFor="creditCardOnUs">Credit Card (On us)</label>
+            <label htmlFor="creditCardOnUs">Credit Card option (On Us)</label>
           )}
           <Field
             as="select"
@@ -61,7 +61,7 @@ const Step2 = ({ selectedProduct, isEdited }: any) => {
             className="form-control floating-label-input"
           >
             <option value="" disabled>
-              Select Credit Card (On us)
+              Credit Card Option (On Us)
             </option>
             <option value="Yes">Yes</option>
             <option value="No">No</option>
@@ -75,7 +75,9 @@ const Step2 = ({ selectedProduct, isEdited }: any) => {
 
         <div className="col-md-4 mb-4 floating-label-container">
           {isEdited && (
-            <label htmlFor="creditCardNotOnUs">Credit Card (Not on Us)</label>
+            <label htmlFor="creditCardNotOnUs">
+              Credit Card Option (Not on Us)
+            </label>
           )}
           <Field
             as="select"
@@ -83,7 +85,7 @@ const Step2 = ({ selectedProduct, isEdited }: any) => {
             className="form-control floating-label-input"
           >
             <option value="" disabled>
-              Select Credit Card (Not on Us)
+              Credit Card Option (Not on Us)
             </option>
             <option value="Yes">Yes</option>
             <option value="No">No</option>
@@ -96,14 +98,14 @@ const Step2 = ({ selectedProduct, isEdited }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          {isEdited && <label htmlFor="debitCard">Select Debit Card</label>}
+          {isEdited && <label htmlFor="debitCard">Debit Card Option</label>}
           <Field
             as="select"
             name="debitCard"
             className="form-control floating-label-input"
           >
             <option value="" disabled>
-              Select Debit Card
+              Debit Card Option
             </option>
             <option value="Yes">Yes</option>
             <option value="No">No</option>
@@ -116,14 +118,14 @@ const Step2 = ({ selectedProduct, isEdited }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          {isEdited && <label htmlFor="cheque">Cheque</label>}
+          {isEdited && <label htmlFor="cheque">Cheque Option</label>}
           <Field
             as="select"
             name="cheque"
             className="form-control floating-label-input"
           >
             <option value="" disabled>
-              Select Cheque
+              Cheque Option
             </option>
             <option value="Yes">Yes</option>
             <option value="No">No</option>
@@ -136,14 +138,14 @@ const Step2 = ({ selectedProduct, isEdited }: any) => {
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          {isEdited && <label htmlFor="bankersCheque">Banker's Cheque</label>}
+          {isEdited && <label htmlFor="bankersCheque">Banker's Cheque Option</label>}
           <Field
             as="select"
             name="bankersCheque"
             className="form-control floating-label-input"
           >
             <option value="" disabled>
-              Select Banker's Cheque
+              Banker's Cheque Option
             </option>
             <option value="Yes">Yes</option>
             <option value="No">No</option>

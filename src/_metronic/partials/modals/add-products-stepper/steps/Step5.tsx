@@ -7,20 +7,18 @@ const Step5 = ({ selectedProduct, isEdited }: any) => {
   useEffect(() => {
     if (selectedProduct) {
       const fields = [
-        "documentType",
-        "postingKey2",
-        "accountCode",
-        "gSTEffectiveDate",
-        "gSTTaxCode",
-        "gSTInclusive3",
-        "mBBIndictor",
-        "postingKey3",
-        "accountCodeCustomerPay",
-        "rate2",
-        "rules",
-        "GSTEffectiveDate2",
-        "gSTTaxCode2",
-        "gSTInclusive2",
+        "documentType2",
+        "postingKey4",
+        "accountCodePrd3",
+        "postingKey5",
+        "accountCode4",
+        "rate3",
+        "rule",
+        "GSTEffectiveDate3",
+        "gSTTaxCode3",
+        "gSTInclusive",
+        "paymentFrequency",
+        "grossNetPayment",
       ];
 
       fields.forEach((field) => {
@@ -35,61 +33,135 @@ const Step5 = ({ selectedProduct, isEdited }: any) => {
     <>
       <div className="row">
         <div className="col-md-4 mb-4 floating-label-container">
-          {isEdited && <label htmlFor="documentType">Document Type</label>}
+          {isEdited && <label htmlFor="documentType2">Document Type</label>}
           <Field
-            name="documentType"
+            name="documentType2"
             type="text"
             className="form-control floating-label-input"
             placeholder="Document Type"
           />
           <ErrorMessage
-            name="documentType"
+            name="documentType2"
             component="div"
             className="error-message"
           />
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          {isEdited && <label htmlFor="postingKey2">Posting Key SAP</label>}
+          {isEdited && <label htmlFor="postingKey4">Posting Key</label>}
           <Field
-            name="postingKey2"
+            name="postingKey4"
             type="text"
             className="form-control floating-label-input"
-            placeholder="Posting Key SAP"
+            placeholder="Posting Key"
           />
           <ErrorMessage
-            name="postingKey2"
+            name="postingKey4"
             component="div"
             className="error-message"
           />
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          {isEdited && <label htmlFor="accountCode">Account Code</label>}
+          {isEdited && (
+            <label htmlFor="accountCodePrd3">Account Code PRD</label>
+          )}
           <Field
-            name="accountCode"
+            name="accountCodePrd3"
+            type="text"
+            className="form-control floating-label-input"
+            placeholder="Account Code PRD"
+          />
+          <ErrorMessage
+            name="accountCodePrd3"
+            component="div"
+            className="error-message"
+          />
+        </div>
+
+        <div className="col-md-4 mb-4 floating-label-container">
+          {isEdited && <label htmlFor="postingKey5">Posting Key</label>}
+          <Field
+            name="postingKey5"
+            type="text"
+            className="form-control floating-label-input"
+            placeholder="Posting Key"
+          />
+          <ErrorMessage
+            name="postingKey5"
+            component="div"
+            className="error-message"
+          />
+        </div>
+
+        <div className="col-md-4 mb-4 floating-label-container">
+          {isEdited && <label htmlFor="accountCode4">Account Code</label>}
+          <Field
+            name="accountCode4"
             type="text"
             className="form-control floating-label-input"
             placeholder="Account Code"
           />
           <ErrorMessage
-            name="accountCode"
+            name="accountCode4"
             component="div"
             className="error-message"
           />
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
+          {isEdited && <label htmlFor="rate3">Rate</label>}
+          <Field
+            name="rate3"
+            type="text"
+            className="form-control floating-label-input"
+            placeholder="Rate"
+          />
+          <ErrorMessage
+            name="rate3"
+            component="div"
+            className="error-message"
+          />
+        </div>
+
+        <div className="col-md-4 mb-4 floating-label-container">
+          {isEdited && <label htmlFor="rule">Rule</label>}
+          <Field
+            name="rule"
+            type="text"
+            className="form-control floating-label-input"
+            placeholder="Rule"
+          />
+          <ErrorMessage name="rule" component="div" className="error-message" />
+        </div>
+
+        <div className="col-md-4 mb-4 floating-label-container">
           {isEdited && (
-            <label htmlFor="gSTEffectiveDate">GST Effective Date</label>
+            <label htmlFor="GSTEffectiveDate3">GST Effective Date</label>
           )}
           <Field
-            name="gSTEffectiveDate"
+            name="GSTEffectiveDate3"
             type="date"
             className="form-control floating-label-input"
+             placeholder="GST Effective Date"
           />
           <ErrorMessage
-            name="gSTEffectiveDate"
+            name="GSTEffectiveDate3"
+            component="div"
+            className="error-message"
+          />
+        </div>
+
+        <div className="col-md-4 mb-4 floating-label-container">
+          {isEdited && <label htmlFor="gSTTaxCode3">GST Tax Code</label>}
+          <Field
+            name="gSTTaxCode3"
+            type="text"
+            className="form-control floating-label-input"
+             placeholder="GST Effective Date"
+          />
+          <ErrorMessage
+            name="gSTTaxCode3"
             component="div"
             className="error-message"
           />
@@ -97,31 +169,16 @@ const Step5 = ({ selectedProduct, isEdited }: any) => {
 
         <div className="col-md-4 mb-4 floating-label-container">
           {isEdited && (
-            <label htmlFor="gSTTaxCode">GST Tax code (SR, ZR, ES, OS)</label>
+            <label htmlFor="paymentFrequency">Payment Frequency</label>
           )}
           <Field
-            name="gSTTaxCode"
+            name="paymentFrequency"
             type="text"
             className="form-control floating-label-input"
-            placeholder="GST Tax code (SR, ZR, ES, OS)"
+             placeholder="Payment Frequency"
           />
           <ErrorMessage
-            name="gSTTaxCode"
-            component="div"
-            className="error-message"
-          />
-        </div>
-
-        <div className="col-md-4 mb-4 floating-label-container">
-          {isEdited && <label htmlFor="gSTInclusive3">GST inclusive</label>}
-          <Field
-            name="gSTInclusive3"
-            type="text"
-            className="form-control floating-label-input"
-            placeholder="GST inclusive"
-          />
-          <ErrorMessage
-            name="gSTInclusive3"
+            name="paymentFrequency"
             component="div"
             className="error-message"
           />
@@ -129,31 +186,16 @@ const Step5 = ({ selectedProduct, isEdited }: any) => {
 
         <div className="col-md-4 mb-4 floating-label-container">
           {isEdited && (
-            <label htmlFor="mBBIndictor">MBB- Indictor for Rounding</label>
+            <label htmlFor="grossNetPayment">Gross / Net Payment</label>
           )}
           <Field
-            name="mBBIndictor"
+            name="grossNetPayment"
             type="text"
             className="form-control floating-label-input"
-            placeholder="MBB- Indictor for Rounding"
+             placeholder="Gross / Net Payment"
           />
           <ErrorMessage
-            name="mBBIndictor"
-            component="div"
-            className="error-message"
-          />
-        </div>
-
-        <div className="col-md-4 mb-4 floating-label-container">
-          {isEdited && <label htmlFor="postingKey3">Posting Key 3</label>}
-          <Field
-            name="postingKey3"
-            type="text"
-            className="form-control floating-label-input"
-            placeholder="Posting Key 3"
-          />
-          <ErrorMessage
-            name="postingKey3"
+            name="grossNetPayment"
             component="div"
             className="error-message"
           />
@@ -161,98 +203,16 @@ const Step5 = ({ selectedProduct, isEdited }: any) => {
 
         <div className="col-md-4 mb-4 floating-label-container">
           {isEdited && (
-            <label htmlFor="accountCodeCustomerPay">
-              Account Code (Customer Pay)
-            </label>
+            <label htmlFor="gSTInclusive">GST inclusive (1,0)</label>
           )}
           <Field
-            name="accountCodeCustomerPay"
+            name="gSTInclusive"
             type="text"
             className="form-control floating-label-input"
-            placeholder="Account Code (Customer Pay)"
+             placeholder="GST inclusive (1,0)"
           />
           <ErrorMessage
-            name="accountCodeCustomerPay"
-            component="div"
-            className="error-message"
-          />
-        </div>
-
-        <div className="col-md-4 mb-4 floating-label-container">
-          {isEdited && <label htmlFor="rate2">Rate 2</label>}
-          <Field
-            name="rate2"
-            type="text"
-            className="form-control floating-label-input"
-            placeholder="Rate 2"
-          />
-          <ErrorMessage
-            name="rate2"
-            component="div"
-            className="error-message"
-          />
-        </div>
-
-        <div className="col-md-4 mb-4 floating-label-container">
-          {isEdited && <label htmlFor="rules">Rules</label>}
-          <Field
-            name="rules"
-            type="text"
-            className="form-control floating-label-input"
-            placeholder="Rules"
-          />
-          <ErrorMessage
-            name="rules"
-            component="div"
-            className="error-message"
-          />
-        </div>
-
-        <div className="col-md-4 mb-4 floating-label-container">
-          {isEdited && (
-            <label htmlFor="GSTEffectiveDate2">GST Effective Date</label>
-          )}
-          <Field
-            name="GSTEffectiveDate2"
-            type="date"
-            className="form-control floating-label-input"
-          />
-          <ErrorMessage
-            name="GSTEffectiveDate2"
-            component="div"
-            className="error-message"
-          />
-        </div>
-
-        <div className="col-md-4 mb-4 floating-label-container">
-          {isEdited && (
-            <label htmlFor="gSTTaxCode2">GST Tax code (SR, ZR, ES, OS)</label>
-          )}
-          <Field
-            name="gSTTaxCode2"
-            type="text"
-            className="form-control floating-label-input"
-            placeholder="GST Tax code (SR, ZR, ES, OS)"
-          />
-          <ErrorMessage
-            name="gSTTaxCode2"
-            component="div"
-            className="error-message"
-          />
-        </div>
-
-        <div className="col-md-4 mb-4 floating-label-container">
-          {isEdited && (
-            <label htmlFor="gSTInclusive2">GST inclusive (1,0)</label>
-          )}
-          <Field
-            name="gSTInclusive2"
-            type="text"
-            className="form-control floating-label-input"
-            placeholder="GST inclusive (1,0)"
-          />
-          <ErrorMessage
-            name="gSTInclusive2"
+            name="gSTInclusive"
             component="div"
             className="error-message"
           />

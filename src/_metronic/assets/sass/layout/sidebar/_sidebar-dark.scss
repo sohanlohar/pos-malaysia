@@ -4,7 +4,7 @@
 
 [data-kt-app-layout="dark-sidebar"] {
     .app-sidebar {
-        background-color: $app-sidebar-dark-bg-color;
+        background: $app-sidebar-dark-bg-color;
         border-right: 0;
 
         .scroll-y,
@@ -13,7 +13,7 @@
         }
 
         .app-sidebar-logo {
-            border-bottom: 1px dashed $app-sidebar-dark-separator-color;
+            // border-bottom: 1px dashed $app-sidebar-dark-separator-color;
         }
 
         .btn-custom {
@@ -89,7 +89,7 @@
     [data-kt-app-layout="dark-sidebar"] {
         .app-sidebar {
             .menu-sub-lg-dropdown {
-                background-color: $app-sidebar-dark-bg-color;
+                background: $app-sidebar-dark-bg-color;
             }
         }
     }

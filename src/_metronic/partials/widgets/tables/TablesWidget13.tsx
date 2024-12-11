@@ -22,7 +22,6 @@ interface FormValues {
   pantasKodKKWT: string;
   postingKey: string;
   financialStatus: string;
-  // commissionProductCode: string;
   cash: string;
   debitCard: string;
   creditCardNotOnUs: string;
@@ -114,7 +113,6 @@ const TablesWidget13: React.FC<Props> = ({ className }) => {
     { label: "Pantas Kod KKWT", accessor: "pantasKodKKWT" },
     { label: "Posting Key", accessor: "postingKey" },
     { label: "Financial Status", accessor: "financialStatus" },
-    // { label: "Commission Product Code", accessor: "commissionProductCode" },
     { label: "Cash", accessor: "cash" },
     { label: "Debit Card", accessor: "debitCard" },
     { label: "Credit Card Not On Us", accessor: "creditCardNotOnUs" },
@@ -220,14 +218,22 @@ const TablesWidget13: React.FC<Props> = ({ className }) => {
 
   return (
     <Content>
-      <div className="d-flex justify-content-between py-6 align-items-center">
+      <div className="d-flex justify-content-between pb-6 gap-6 align-items-center">
         <h2 className="mb-0">Poslaju Product</h2>
-        <button
-          onClick={() => setShowCreateAppModal(true)}
-          className="btn btn-sm fw-bold btn-primary"
-        >
-          Add Product
-        </button>
+        <div className="d-flex gap-5">
+          <button
+            onClick={() => setShowCreateAppModal(true)}
+            className="btn btn-sm fw-bold btn-primary"
+          >
+            Add Product
+          </button>
+          <button
+            className="btn btn-primary btn-sm"
+            onClick={() => setIsModalOpen(true)}
+          >
+            View Columns
+          </button>
+        </div>
       </div>
 
       <AddProductModel
@@ -241,15 +247,15 @@ const TablesWidget13: React.FC<Props> = ({ className }) => {
         setSelectedProduct={setSelectedProduct}
       />
       <div className={`card ${className}`}>
-        <div className="card-header border-0 pt-5 align-items-start justify-content-end">
+        {/* <div className="card-header border-0 pt-5 align-items-start justify-content-end">
           <button
             className="btn btn-primary btn-sm"
             onClick={() => setIsModalOpen(true)}
           >
             View Columns
           </button>
-        </div>
-        <div className="card-body py-3">
+        </div> */}
+        <div className="card-body p-5">
           <div className="table-responsive">
             <table className="table table-row-dashed table-row-gray-300 align-middle  gs-4 gy-4">
               <thead>

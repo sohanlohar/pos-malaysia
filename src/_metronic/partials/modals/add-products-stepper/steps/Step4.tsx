@@ -7,17 +7,20 @@ const Step4 = ({ selectedProduct, isEdited }: any) => {
   useEffect(() => {
     if (selectedProduct) {
       const fields = [
-        "governmentServiceTax",
-        "gstTax",
-        "financialNonFinancial",
-        "staffDiscount",
-        "fixedAmountPerTrxn",
-        "percentageValue",
-        "ratePOS",
-        "ratePOSOnline",
-        "customerPay",
-        "incentiveStaffPO",
-        "agencyPay",
+        "documentType",
+        "postingKey2",
+        "accountCode",
+        "gSTEffectiveDate",
+        "gSTTaxCode",
+        "gSTInclusive3",
+        "mBBIndictor",
+        "postingKey3",
+        "accountCodeCustomerPay",
+        "rate2",
+        "rules",
+        "GSTEffectiveDate2",
+        "gSTTaxCode2",
+        "gSTInclusive2",
       ];
 
       fields.forEach((field) => {
@@ -32,44 +35,174 @@ const Step4 = ({ selectedProduct, isEdited }: any) => {
     <>
       <div className="row">
         <div className="col-md-4 mb-4 floating-label-container">
+          {isEdited && <label htmlFor="documentType">Document Type</label>}
+          <Field
+            name="documentType"
+            type="text"
+            className="form-control floating-label-input"
+            placeholder="Document Type"
+          />
+          <ErrorMessage
+            name="documentType"
+            component="div"
+            className="error-message"
+          />
+        </div>
+
+        <div className="col-md-4 mb-4 floating-label-container">
+          {isEdited && <label htmlFor="postingKey2">Posting Key SAP</label>}
+          <Field
+            name="postingKey2"
+            type="text"
+            className="form-control floating-label-input"
+            placeholder="Posting Key SAP"
+          />
+          <ErrorMessage
+            name="postingKey2"
+            component="div"
+            className="error-message"
+          />
+        </div>
+
+        <div className="col-md-4 mb-4 floating-label-container">
+          {isEdited && <label htmlFor="accountCode">Account Code</label>}
+          <Field
+            name="accountCode"
+            type="text"
+            className="form-control floating-label-input"
+            placeholder="Account Code"
+          />
+          <ErrorMessage
+            name="accountCode"
+            component="div"
+            className="error-message"
+          />
+        </div>
+
+        <div className="col-md-4 mb-4 floating-label-container">
           {isEdited && (
-            <label htmlFor="governmentServiceTax">
-              Government Service Tax 6%
+            <label htmlFor="gSTEffectiveDate">GST Effective Date</label>
+          )}
+          <Field
+            name="gSTEffectiveDate"
+            type="date"
+            className="form-control floating-label-input"
+          />
+          <ErrorMessage
+            name="gSTEffectiveDate"
+            component="div"
+            className="error-message"
+          />
+        </div>
+
+        <div className="col-md-4 mb-4 floating-label-container">
+          {isEdited && (
+            <label htmlFor="gSTTaxCode">GST Tax code (SR, ZR, ES, OS)</label>
+          )}
+          <Field
+            name="gSTTaxCode"
+            type="text"
+            className="form-control floating-label-input"
+            placeholder="GST Tax code (SR, ZR, ES, OS)"
+          />
+          <ErrorMessage
+            name="gSTTaxCode"
+            component="div"
+            className="error-message"
+          />
+        </div>
+
+        <div className="col-md-4 mb-4 floating-label-container">
+          {isEdited && <label htmlFor="gSTInclusive3">GST inclusive</label>}
+          <Field
+            name="gSTInclusive3"
+            type="text"
+            className="form-control floating-label-input"
+            placeholder="GST inclusive"
+          />
+          <ErrorMessage
+            name="gSTInclusive3"
+            component="div"
+            className="error-message"
+          />
+        </div>
+
+        <div className="col-md-4 mb-4 floating-label-container">
+          {isEdited && (
+            <label htmlFor="mBBIndictor">MBB- Indictor for Rounding</label>
+          )}
+          <Field
+            name="mBBIndictor"
+            type="text"
+            className="form-control floating-label-input"
+            placeholder="MBB- Indictor for Rounding"
+          />
+          <ErrorMessage
+            name="mBBIndictor"
+            component="div"
+            className="error-message"
+          />
+        </div>
+
+        <div className="col-md-4 mb-4 floating-label-container">
+          {isEdited && <label htmlFor="postingKey3">Posting Key 3</label>}
+          <Field
+            name="postingKey3"
+            type="text"
+            className="form-control floating-label-input"
+            placeholder="Posting Key 3"
+          />
+          <ErrorMessage
+            name="postingKey3"
+            component="div"
+            className="error-message"
+          />
+        </div>
+
+        <div className="col-md-4 mb-4 floating-label-container">
+          {isEdited && (
+            <label htmlFor="accountCodeCustomerPay">
+              Account Code (Customer Pay)
             </label>
           )}
           <Field
-            as="select"
-            name="governmentServiceTax"
+            name="accountCodeCustomerPay"
+            type="text"
             className="form-control floating-label-input"
-          >
-            <option value="" disabled>
-              Select Government Service Tax 6%
-            </option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </Field>
+            placeholder="Account Code (Customer Pay)"
+          />
           <ErrorMessage
-            name="governmentServiceTax"
+            name="accountCodeCustomerPay"
             component="div"
             className="error-message"
           />
         </div>
 
         <div className="col-md-4 mb-4 floating-label-container">
-          {isEdited && <label htmlFor="gstTax">GST</label>}
+          {isEdited && <label htmlFor="rate2">Rate 2</label>}
           <Field
-            as="select"
-            name="gstTax"
+            name="rate2"
+            type="text"
             className="form-control floating-label-input"
-          >
-            <option value="" disabled>
-              Select GST
-            </option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </Field>
+            placeholder="Rate 2"
+          />
           <ErrorMessage
-            name="gstTax"
+            name="rate2"
+            component="div"
+            className="error-message"
+          />
+        </div>
+
+        <div className="col-md-4 mb-4 floating-label-container">
+          {isEdited && <label htmlFor="rules">Rules</label>}
+          <Field
+            name="rules"
+            type="text"
+            className="form-control floating-label-input"
+            placeholder="Rules"
+          />
+          <ErrorMessage
+            name="rules"
             component="div"
             className="error-message"
           />
@@ -77,38 +210,15 @@ const Step4 = ({ selectedProduct, isEdited }: any) => {
 
         <div className="col-md-4 mb-4 floating-label-container">
           {isEdited && (
-            <label htmlFor="financialNonFinancial">
-              Financial or Non-Financial
-            </label>
+            <label htmlFor="GSTEffectiveDate2">GST Effective Date</label>
           )}
           <Field
-            as="select"
-            name="financialNonFinancial"
+            name="GSTEffectiveDate2"
+            type="date"
             className="form-control floating-label-input"
-          >
-            <option value="" disabled>
-              Select Financial or Non-Financial
-            </option>
-            <option value="Financial">Financial</option>
-            <option value="Non-Financial">Non-Financial</option>
-          </Field>
-          <ErrorMessage
-            name="financialNonFinancial"
-            component="div"
-            className="error-message"
-          />
-        </div>
-
-        <div className="col-md-4 mb-4 floating-label-container">
-          {isEdited && <label htmlFor="staffDiscount">Staff Discount</label>}
-          <Field
-            name="staffDiscount"
-            type="text"
-            className="form-control floating-label-input"
-            placeholder="Staff Discount"
           />
           <ErrorMessage
-            name="staffDiscount"
+            name="GSTEffectiveDate2"
             component="div"
             className="error-message"
           />
@@ -116,16 +226,16 @@ const Step4 = ({ selectedProduct, isEdited }: any) => {
 
         <div className="col-md-4 mb-4 floating-label-container">
           {isEdited && (
-            <label htmlFor="fixedAmountPerTrxn">Fixed Amount Per Trxn</label>
+            <label htmlFor="gSTTaxCode2">GST Tax code (SR, ZR, ES, OS)</label>
           )}
           <Field
-            name="fixedAmountPerTrxn"
+            name="gSTTaxCode2"
             type="text"
             className="form-control floating-label-input"
-            placeholder="Fixed Amount Per Trxn"
+            placeholder="GST Tax code (SR, ZR, ES, OS)"
           />
           <ErrorMessage
-            name="fixedAmountPerTrxn"
+            name="gSTTaxCode2"
             component="div"
             className="error-message"
           />
@@ -133,103 +243,16 @@ const Step4 = ({ selectedProduct, isEdited }: any) => {
 
         <div className="col-md-4 mb-4 floating-label-container">
           {isEdited && (
-            <label htmlFor="percentageValue">Percentage on Value</label>
+            <label htmlFor="gSTInclusive2">GST inclusive (1,0)</label>
           )}
           <Field
-            name="percentageValue"
+            name="gSTInclusive2"
             type="text"
             className="form-control floating-label-input"
-            placeholder="Percentage on Value"
+            placeholder="GST inclusive (1,0)"
           />
           <ErrorMessage
-            name="percentageValue"
-            component="div"
-            className="error-message"
-          />
-        </div>
-
-        <div className="col-md-4 mb-4 floating-label-container">
-          {isEdited && <label htmlFor="ratePOS">Rate (POS 24)</label>}
-          <Field
-            name="ratePOS"
-            type="text"
-            className="form-control floating-label-input"
-            placeholder="Rate (POS 24)"
-          />
-          <ErrorMessage
-            name="ratePOS"
-            component="div"
-            className="error-message"
-          />
-        </div>
-
-        <div className="col-md-4 mb-4 floating-label-container">
-          {isEdited && <label htmlFor="ratePOSOnline">Rate POS Online</label>}
-          <Field
-            name="ratePOSOnline"
-            type="text"
-            className="form-control floating-label-input"
-            placeholder="Rate POS Online"
-          />
-          <ErrorMessage
-            name="ratePOSOnline"
-            component="div"
-            className="error-message"
-          />
-        </div>
-
-        <div className="col-md-4 mb-4 floating-label-container">
-          {isEdited && <label htmlFor="customerPay">Customer Pay</label>}
-          <Field
-            as="select"
-            name="customerPay"
-            className="form-control floating-label-input"
-          >
-            <option value="" disabled>
-              Select Customer Pay
-            </option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </Field>
-          <ErrorMessage
-            name="customerPay"
-            component="div"
-            className="error-message"
-          />
-        </div>
-
-        <div className="col-md-4 mb-4 floating-label-container">
-          {isEdited && (
-            <label htmlFor="incentiveStaffPO">Incentive to staff/PO</label>
-          )}
-          <Field
-            name="incentiveStaffPO"
-            type="text"
-            className="form-control floating-label-input"
-            placeholder="Incentive to staff/PO"
-          />
-          <ErrorMessage
-            name="incentiveStaffPO"
-            component="div"
-            className="error-message"
-          />
-        </div>
-
-        <div className="col-md-4 mb-4 floating-label-container">
-          {isEdited && <label htmlFor="agencyPay">Agency Pay</label>}
-          <Field
-            as="select"
-            name="agencyPay"
-            className="form-control floating-label-input"
-          >
-            <option value="" disabled>
-              Select Agency Pay
-            </option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </Field>
-          <ErrorMessage
-            name="agencyPay"
+            name="gSTInclusive2"
             component="div"
             className="error-message"
           />

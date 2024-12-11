@@ -3,7 +3,7 @@
 //
 
 // Reboot
-$app-bg-color: #fcfcfc;
+$app-bg-color: #F2F3F8;
 $app-bg-color-dark: $coal-400;
 $app-blank-bg-color: $app-bg-color;
 $app-blank-bg-color-dark: $app-bg-color-dark;
@@ -77,7 +77,7 @@ $app-sidebar-light-scrollbar-color-hover-dark: $gray-200-dark;
 $app-sidebar-light-menu-heading-color: #B5B5C3;
 $app-sidebar-light-menu-heading-color-dark: $gray-500-dark;
 $app-sidebar-light-menu-link-bg-color-active:#F7F8FB;
-$app-sidebar-light-menu-link-bg-color-active-dark:#2A2A3C;
+$app-sidebar-light-menu-link-bg-color-active-dark:red;
 $app-sidebar-light-menu-link-color: #252F4A;
 $app-sidebar-light-menu-link-color-dark: $gray-300;
 $app-sidebar-light-menu-link-icon-color: #99A1B7;
@@ -86,18 +86,18 @@ $app-sidebar-light-header-menu-link-bg-color-active: #F7F8FB;
 $app-sidebar-light-header-menu-link-bg-color-active-dark: $gray-100-dark;
     
 // Sidebar dark
-$app-sidebar-dark-bg-color: $coal-500;
+$app-sidebar-dark-bg-color: $app_sidebar_bg_gradient;
 $app-sidebar-dark-separator-color: $light-light-dark;
 $app-sidebar-dark-scrollbar-color-hover: lighten($app-sidebar-dark-separator-color, 2%);
-$app-sidebar-dark-menu-heading-color: $gray-500-dark;
-$app-sidebar-dark-menu-sub-link-color: $gray-600-dark;;
-$app-sidebar-dark-menu-link-bg-color-active: #1C1C21;
+$app-sidebar-dark-menu-heading-color: yellow;
+$app-sidebar-dark-menu-sub-link-color: red;;
+$app-sidebar-dark-menu-link-bg-color-active: #fff;
 
 // Aside base
 $app-aside-base-width: 320px;
 $app-aside-base-width-mobile: 300px; 
 $app-aside-base-bg-color: $body-bg;
-$app-aside-base-bg-color-dark: #131313; 
+$app-aside-base-bg-color-dark: red; 
 $app-aside-base-gap-end: $app-container-padding-x;
 $app-aside-base-gap-top: $app-container-padding-x;
 $app-aside-base-gap-bottom: $app-container-padding-x;

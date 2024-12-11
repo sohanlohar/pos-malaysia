@@ -2,7 +2,6 @@ import { ErrorMessage, Field, useFormikContext } from "formik";
 import { useEffect } from "react";
 
 const Step1 = ({ selectedProduct, isEdited }: any) => {
-  console.log("isEdited", isEdited);
   const { setFieldValue } = useFormikContext();
 
   useEffect(() => {

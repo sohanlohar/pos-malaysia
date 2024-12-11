@@ -43,12 +43,6 @@ export const step2ValidationSchema = Yup.object({
 
 // Step 3 validation schema
 export const step3ValidationSchema = Yup.object({
-  posLoyaltyReward: Yup.string().required("POS Loyalty Reward is required"),
-  realRewards: Yup.string().required("Real Rewards is required"),
-});
-
-// Step 4 validation schema
-export const step4ValidationSchema = Yup.object({
   governmentServiceTax: Yup.string().required(
     "Government Service Tax is required"
   ),
@@ -68,8 +62,8 @@ export const step4ValidationSchema = Yup.object({
   agencyPay: Yup.string().required("Agency Pay is required"),
 });
 
-// Step 5 validation schema
-export const step5ValidationSchema = Yup.object({
+// Step 4 validation schema
+export const step4ValidationSchema = Yup.object({
   documentType: Yup.string().required("Document Type is required"),
   postingKey2: Yup.string().required("Posting Key 2 is required"),
   accountCode: Yup.string().required("Account Code is required"),
@@ -88,8 +82,8 @@ export const step5ValidationSchema = Yup.object({
   gSTInclusive2: Yup.string().required("GST Inclusive 2 is required"),
 });
 
-// Step 6 validation schema
-export const step6ValidationSchema = Yup.object({
+// Step 5 validation schema
+export const step5ValidationSchema = Yup.object({
   documentType2: Yup.string().required("Document Type 2 is required"),
   postingKey4: Yup.string().required("Posting Key 4 is required"),
   accountCodePrd3: Yup.string().required("Account Code 3 is required"),
@@ -102,4 +96,10 @@ export const step6ValidationSchema = Yup.object({
   paymentFrequency: Yup.string().required("Payment Frequency is required"),
   grossNetPayment: Yup.string().required("Gross/Net Payment is required"),
   gSTInclusive: Yup.string().required("GST Inclusive is required"),
+});
+
+// Step 6 validation schema
+export const step6ValidationSchema = Yup.object({
+  posLoyaltyReward: Yup.string().required("POS Loyalty Reward is required"),
+  realRewards: Yup.string().required("Real Rewards is required"),
 });

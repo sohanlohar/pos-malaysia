@@ -218,11 +218,18 @@ const AddProductModel = ({
   const stepLabels = [
     "Product Details",
     "Payment Method",
-    "Loyalty Scheme",
     "Pricing",
     "Transaction Level",
     "Commission",
+    "Others",
   ];
+
+  const handleCloseBtn = () => {
+    handleClose();
+    setIsedited(false);
+    setSelectedProduct(null);
+    setStep(1);
+  };
 
   return createPortal(
     <Modal
@@ -230,7 +237,7 @@ const AddProductModel = ({
       tabIndex={-1}
       dialogClassName="modal-dialog modal-dialog-centered mw-900px"
       show={show}
-      onHide={handleClose}
+      onHide={handleCloseBtn}
     >
       <div className="modal-header px-8 py-3">
         <h2 className="mb-0">
@@ -238,7 +245,7 @@ const AddProductModel = ({
         </h2>
         <button
           className="btn btn-sm btn-icon btn-active-color-primary"
-          onClick={handleClose}
+          onClick={handleCloseBtn}
         >
           <KTIcon
             className="fs-2hx text-gray-700 text-hover-primary"
@@ -276,7 +283,7 @@ const AddProductModel = ({
           </div>
           <Formik
             initialValues={initialValues}
-            validationSchema={validationSchema}
+            // validationSchema={validationSchema}
             enableReinitialize
             validateOnChange={false}
             validateOnBlur={false}
