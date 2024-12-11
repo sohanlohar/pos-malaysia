@@ -7,6 +7,7 @@ import { ToggleComponent } from "../../../assets/ts/components";
 
 type PropsType = {
   sidebarRef: MutableRefObject<HTMLDivElement | null>;
+  setToggleIcon: Function;
 };
 
 const SidebarLogo = (props: PropsType) => {
@@ -41,6 +42,9 @@ const SidebarLogo = (props: PropsType) => {
 
         setTimeout(function () {
           props.sidebarRef.current!.classList.remove("animating");
+          props.setToggleIcon((prev: any) =>
+            prev === "hiden-toggle" ? "show-toggle" : "hiden-toggle"
+          );
         }, 300);
       });
     }, 600);
@@ -67,7 +71,7 @@ const SidebarLogo = (props: PropsType) => {
           ref={toggleRef}
           id="kt_app_sidebar_toggle"
           className={clsx(
-            "app-sidebar-toggle btn btn-icon btn-shadow btn-sm btn-color-white btn-active-color-gray h-40px w-40px position-absolute top-50 start-100 translate-middle rotate",
+            "app-sidebar-toggle btn btn-icon btn-shadow btn-sm btn-color-white btn-active-color-gray h-30px w-30px position-absolute top-50 start-100 translate-middle rotate",
             { active: appSidebarDefaultMinimizeDefault }
           )}
           data-kt-toggle="true"

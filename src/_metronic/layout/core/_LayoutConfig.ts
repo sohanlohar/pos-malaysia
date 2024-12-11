@@ -65,11 +65,11 @@ export const DefaultConfig: ILayout = {
           desktop: {
             enabled: true,
             default: false,
-            hoverable: true
+            hoverable: false
           }
         },
         menu: {
-          iconType: 'svg'
+          iconType: 'font'
         }
       }
     },

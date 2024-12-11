@@ -27,10 +27,10 @@ const SidebarMenuItemWithSub: React.FC<Props & WithChildren> = ({
 
   return (
     <div
-      className={clsx('menu-item', {'here show': isActive}, 'menu-accordion')}
+      className={clsx('menu-item sohan', {'here show': isActive}, 'menu-accordion')}
       data-kt-menu-trigger='click'
     >
-      <span className='menu-link'>
+      <span className='menu-link gap-3'>
         {hasBullet && (
           <span className='menu-bullet'>
             <span className='bullet bullet-dot'></span>
