@@ -247,14 +247,6 @@ const TablesWidget13: React.FC<Props> = ({ className }) => {
         setSelectedProduct={setSelectedProduct}
       />
       <div className={`card ${className}`}>
-        {/* <div className="card-header border-0 pt-5 align-items-start justify-content-end">
-          <button
-            className="btn btn-primary btn-sm"
-            onClick={() => setIsModalOpen(true)}
-          >
-            View Columns
-          </button>
-        </div> */}
         <div className="card-body p-5">
           <div className="table-responsive">
             <table className="table table-row-dashed table-row-gray-300 align-middle  gs-4 gy-4">

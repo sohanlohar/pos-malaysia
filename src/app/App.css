@@ -66,3 +66,37 @@ select.floating-label-input {
   background-color: transparent !important;
   transition: all 0.3s ease-in-out;
 }
+/* ------------------------- */
+
+.horizontal-table-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.horizontal-table-header .header-col {
+  flex: 1;
+  font-weight: bold;
+  text-align: center;
+}
+.horizontal-table-header .header-col p {
+  font-size: 12px;
+  line-height: 14px;
+  white-space: break-spaces;
+  margin-bottom: 10px;
+}
+
+.horizontal-table .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.horizontal-table .row .col {
+  flex: 1;
+  text-align: center;
+}
+
+.horizontal-table button {
+  margin-top: 10px;
+}

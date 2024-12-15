@@ -16,7 +16,6 @@ export function HeaderWrapper() {
     return null
   }
 
-  console.log(config.layoutType)
   return (
     <div
       id='kt_app_header'

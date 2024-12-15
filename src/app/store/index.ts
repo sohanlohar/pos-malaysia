@@ -3,16 +3,37 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import formReducer from "./poslajuProductSlice";
 import columnReducer from "./columnSlice";
+import {
+  zone1formReducer,
+  zone2formReducer,
+  zone3formReducer,
+  zone4formReducer,
+  zone5formReducer,
+} from "./zoneFormSlices";
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["poslajuProduct", "columns"],
+  whitelist: [
+    "poslajuProduct",
+    "columns",
+    "zone1Slice",
+    "zone1",
+    "zone2",
+    "zone3",
+    "zone4",
+    "zone5",
+  ],
 };
 
 const rootReducer = combineReducers({
   poslajuProduct: formReducer,
   columns: columnReducer,
+  zone1: zone1formReducer,
+  zone2: zone2formReducer,
+  zone3: zone3formReducer,
+  zone4: zone4formReducer,
+  zone5: zone5formReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

@@ -30,6 +30,28 @@ const SidebarMenuMain = () => {
           fontIcon="bi-box-seam"
         />
       </SidebarMenuItemWithSub>
+      <SidebarMenuItemWithSub
+        to="/product-matrix"
+        title="Product Matrix"
+        hasBullet={false}
+        fontIcon="bi-graph-up-arrow"
+      >
+        <SidebarMenuItem
+          to="/product-matrix/pos-laju-walk-in"
+          title="Pos Laju Walk In"
+          fontIcon="bi-box-seam"
+        />
+        <SidebarMenuItem
+          to="/product-matrix/pos-laju-motor-delivery"
+          title="Pos Laju Motor Delivery"
+          fontIcon="bi-box-seam"
+        />
+          <SidebarMenuItem
+          to="/product-matrix/pos-laju-prepaid-rates"
+          title="Pos Laju Motor Delivery"
+          fontIcon="bi-box-seam"
+        />
+      </SidebarMenuItemWithSub>
     </>
   );
 };
