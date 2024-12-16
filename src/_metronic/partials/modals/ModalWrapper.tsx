@@ -48,7 +48,7 @@ const ModalWrapper: React.FC<ModalWrapperProps> = ({
             />
           </button>
         </ModalHeader>
-        <ModalBody>{children}</ModalBody>
+        <ModalBody style={{background:"#C4D7FF"}}>{children}</ModalBody>
         {/* <ModalFooter className="py-3">
           <Button variant="primary">Understood</Button>
         </ModalFooter> */}

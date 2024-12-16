@@ -1,12 +1,13 @@
 import { ErrorMessage, Field, FormikProvider, useFormik } from "formik";
-import { forwardRef, useImperativeHandle } from "react";
+import { forwardRef, useEffect, useImperativeHandle } from "react";
 import { Form, InputGroup } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { setZone1FormState } from "../../../store/zoneFormSlices";
 import { validationSchema } from "../interface/FormValidationSchemas";
 import { Zone1Columns } from "../interface/Zone1Columns";
 
-const Zone1 = forwardRef((_, ref) => {
+const Zone1 = forwardRef((props, ref) => {
+  const { isEdited, selectedRowData, index } = props;
   const dispatch = useDispatch();
 
   const formik = useFormik({
@@ -28,7 +29,7 @@ const Zone1 = forwardRef((_, ref) => {
     },
     validateOnBlur: true,
     validateOnChange: true,
-    validationSchema: validationSchema,
+    // validationSchema: validationSchema,
     onSubmit: (values) => {
       dispatch(setZone1FormState(values));
       formik.resetForm();
@@ -75,6 +76,14 @@ const Zone1 = forwardRef((_, ref) => {
     },
   }));
 
+  useEffect(() => {
+    if (isEdited && selectedRowData) {
+      const { rowData, index } = selectedRowData;
+
+      formik.setFieldValue(`rows[${index}]`, rowData);
+    }
+  }, [isEdited, selectedRowData]);
+
   return (
     <FormikProvider value={formik}>
       <Form>
@@ -100,6 +109,8 @@ const Zone1 = forwardRef((_, ref) => {
                       type="number"
                       className="form-control floating-label-input w-100"
                       placeholder={`Enter ${key}`}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
                     />
                     <ErrorMessage
                       name={`rows[${index}].${key}`}
@@ -137,4 +148,3 @@ const Zone1 = forwardRef((_, ref) => {
 });
 
 export { Zone1 };
-

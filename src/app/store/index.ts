@@ -11,6 +11,8 @@ import {
   zone5formReducer,
 } from "./zoneFormSlices";
 
+import zonesColumnSlice from "./zonesColumnSlice";
+
 const persistConfig = {
   key: "root",
   storage,
@@ -23,6 +25,7 @@ const persistConfig = {
     "zone3",
     "zone4",
     "zone5",
+    "zonesColumns",
   ],
 };
 
@@ -34,6 +37,7 @@ const rootReducer = combineReducers({
   zone3: zone3formReducer,
   zone4: zone4formReducer,
   zone5: zone5formReducer,
+  zonesColumns: zonesColumnSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

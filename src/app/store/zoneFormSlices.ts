@@ -183,24 +183,26 @@ const zone1formSlice = createSlice({
   initialState: zone1InitialState,
   reducers: {
     setFormState(state, action: PayloadAction<Zone1FormState>) {
-      state.rows = action.payload.rows; // Replace existing rows
+      state.rows = [...state.rows, ...action.payload.rows];
     },
     resetFormState(state) {
       state.rows = zone1InitialState.rows;
     },
-    updateRow(state, action: PayloadAction<{ index: number; row: ZoneFormRow }>) {
+    updateZone1Row(
+      state,
+      action: PayloadAction<{ row: DataRow; index: number }>
+    ) {
       const { index, row } = action.payload;
       if (state.rows[index]) {
-        state.rows[index] = row;
+        state.rows[index] = { ...state.rows[index], ...row };
       }
     },
     removeZone1Row(state, action: PayloadAction<number>) {
-      console.log("action.payload", action.payload)
       state.rows = state.rows.filter((_, index) => index !== action.payload);
     },
-    addRow(state, action: PayloadAction<ZoneFormRow>) {
-      state.rows.push(action.payload);
-    },
+    // addRow(state, action: PayloadAction<ZoneFormRow>) {
+    //   state.rows.push(action.payload);
+    // },
   },
 });
 
@@ -211,6 +213,10 @@ const zone2formSlice = createSlice({
   reducers: {
     setFormState(state, action: PayloadAction<Zone2FormState>) {
       state.rows = [...state.rows, ...action.payload.rows];
+    },
+    removeZone2Row(state, action: PayloadAction<number>) {
+      state.rows = state.rows.filter((_, index) => index !== action.payload);
+      console.log("🚀 ~ action.payload:", action.payload)
     },
     resetFormState(state) {
       state.rows = zone2InitialState.rows;
@@ -226,6 +232,9 @@ const zone3formSlice = createSlice({
     setFormState(state, action: PayloadAction<Zone3FormState>) {
       state.rows = [...state.rows, ...action.payload.rows];
     },
+    removeZone3Row(state, action: PayloadAction<number>) {
+      state.rows = state.rows.filter((_, index) => index !== action.payload);
+    },
     resetFormState(state) {
       state.rows = zone3InitialState.rows;
     },
@@ -239,6 +248,9 @@ const zone4formSlice = createSlice({
   reducers: {
     setFormState(state, action: PayloadAction<Zone4FormState>) {
       state.rows = [...state.rows, ...action.payload.rows];
+    },
+    removeZone4Row(state, action: PayloadAction<number>) {
+      state.rows = state.rows.filter((_, index) => index !== action.payload);
     },
     resetFormState(state) {
       state.rows = zone4InitialState.rows;
@@ -254,6 +266,9 @@ const zone5formSlice = createSlice({
     setFormState(state, action: PayloadAction<Zone5FormState>) {
       state.rows = [...state.rows, ...action.payload.rows];
     },
+    removeZone5Row(state, action: PayloadAction<number>) {
+      state.rows = state.rows.filter((_, index) => index !== action.payload);
+    },
     resetFormState(state) {
       state.rows = zone5InitialState.rows;
     },
@@ -264,25 +279,29 @@ const zone5formSlice = createSlice({
 export const {
   setFormState: setZone1FormState,
   resetFormState: resetZone1FormState,
-  updateRow: updateZone1Row,
+  updateZone1Row: updateZone1Row,
   removeZone1Row: removeZone1Row,
   addRow: addZone1Row,
 } = zone1formSlice.actions;
 export const {
   setFormState: setZone2FormState,
   resetFormState: resetZone2FormState,
+  removeZone2Row: removeZone2Row,
 } = zone2formSlice.actions;
 export const {
   setFormState: setZone3FormState,
   resetFormState: resetZone3FormState,
+  removeZone3Row: removeZone3Row,
 } = zone3formSlice.actions;
 export const {
   setFormState: setZone4FormState,
   resetFormState: resetZone4FormState,
+  removeZone4Row: removeZone4Row,
 } = zone4formSlice.actions;
 export const {
   setFormState: setZone5FormState,
   resetFormState: resetZone5FormState,
+  removeZone5Row: removeZone5Row,
 } = zone5formSlice.actions;
 
 export const zone1formReducer = zone1formSlice.reducer;

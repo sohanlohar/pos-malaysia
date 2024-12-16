@@ -1,10 +1,29 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { DataTableWrapper } from "../../../_metronic/partials/widgets/tables/DataTableWrapper";
 import { RootState } from "../../store";
-import { useDispatch, useSelector } from "react-redux";
 import { removeZone1Row } from "../../store/zoneFormSlices";
 
-const WalkInZone1: React.FC = () => {
+type DataRow = {
+  from: string;
+  to: string;
+  base: string;
+  fuelSurcharge15: string;
+  handlingCharge15: string;
+  posCoverage: string;
+  overweightSurcharge: string;
+  baseSurchargePos: string;
+  sst6: string;
+  allInPriceSST: string;
+};
+
+const WalkInZone1: React.FC = ({
+  setSelectedRowData,
+  setIsedited,
+  setShow,
+  isModalOpen,
+  setIsModalOpen,
+}: any) => {
   const formData = useSelector((state: RootState) => state.zone1.rows);
   const dispatch = useDispatch();
 
@@ -22,12 +41,29 @@ const WalkInZone1: React.FC = () => {
   ];
 
   const rowDeleteHandleFn = (index: number) => {
-    dispatch(removeZone1Row(index)); 
+    const confirmDelete = window.confirm(`Are you sure you want to delete?`);
+    if (confirmDelete) {
+      dispatch(removeZone1Row(index));
+    }
+  };
+
+  const rowUpdateHandleFn = (rowData: DataRow, index: number) => {
+    setSelectedRowData({ rowData, index });
+    setShow(true);
+    setIsedited(true);
   };
 
   return (
     <div className="card">
-      <DataTableWrapper data={formData} columns={columns} handleDelete={rowDeleteHandleFn}/>
+      <DataTableWrapper
+        data={formData}
+        columns={columns}
+        handleDelete={rowDeleteHandleFn}
+        handleUpdate={rowUpdateHandleFn}
+        setShow={setShow}
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+      />
     </div>
   );
 };

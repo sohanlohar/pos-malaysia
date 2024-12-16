@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { DataTableWrapper } from "../../../_metronic/partials/widgets/tables/DataTableWrapper";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
+import { removeZone3Row } from "../../store/zoneFormSlices";
 
 type DataRow = {
   from: number;
@@ -23,6 +24,7 @@ type Column<DataType> = {
 
 const WalkInZone3: React.FC = () => {
   const formData = useSelector((state: RootState) => state.zone3.rows);
+  const dispatch = useDispatch();
 
   const columns: Column<DataRow>[] = [
     { label: "From", accessor: "from" },
@@ -37,9 +39,20 @@ const WalkInZone3: React.FC = () => {
     { label: "All-in-Price + SST", accessor: "allInPriceSST" },
   ];
 
+  const rowDeleteHandleFn = (index: number) => {
+    const confirmDelete = window.confirm(`Are you sure you want to delete?`);
+    if (confirmDelete) {
+      dispatch(removeZone3Row(index));
+    }
+  };
+
   return (
     <div className="card">
-      <DataTableWrapper data={formData} columns={columns} />
+      <DataTableWrapper
+        data={formData}
+        columns={columns}
+        handleDelete={rowDeleteHandleFn}
+      />
     </div>
   );
 };

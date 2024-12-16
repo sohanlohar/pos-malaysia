@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { DataTableWrapper } from "../../../_metronic/partials/widgets/tables/DataTableWrapper";
 import { RootState } from "../../store";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { removeZone4Row } from "../../store/zoneFormSlices";
 
 type DataRow = {
   from: number;
@@ -23,6 +24,7 @@ type Column<DataType> = {
 
 const WalkInZone4: React.FC = () => {
   const formData = useSelector((state: RootState) => state.zone4.rows);
+  const dispatch = useDispatch();
 
   const columns: Column<DataRow>[] = [
     { label: "From", accessor: "from" },
@@ -37,48 +39,20 @@ const WalkInZone4: React.FC = () => {
     { label: "All-in-Price + SST", accessor: "allInPriceSST" },
   ];
 
-  // const data = [
-  //   {
-  //     from: 1001,
-  //     to: 2001,
-  //     base: 100,
-  //     fuelSurcharge15: 15,
-  //     handlingCharge15: 15,
-  //     posCoverage: 5,
-  //     overweightSurcharge: 10,
-  //     baseSurchargePos: 145,
-  //     sst6: 8.7,
-  //     allInPriceSST: 153.7,
-  //   },
-  //   {
-  //     from: 1002,
-  //     to: 2002,
-  //     base: 200,
-  //     fuelSurcharge15: 30,
-  //     handlingCharge15: 30,
-  //     posCoverage: 10,
-  //     overweightSurcharge: 20,
-  //     baseSurchargePos: 290,
-  //     sst6: 17.4,
-  //     allInPriceSST: 307.4,
-  //   },
-  //   {
-  //     from: 1003,
-  //     to: 2003,
-  //     base: 150,
-  //     fuelSurcharge15: 22.5,
-  //     handlingCharge15: 22.5,
-  //     posCoverage: 7,
-  //     overweightSurcharge: 15,
-  //     baseSurchargePos: 217,
-  //     sst6: 13.02,
-  //     allInPriceSST: 230.02,
-  //   },
-  // ];
+  const rowDeleteHandleFn = (index: number) => {
+    const confirmDelete = window.confirm(`Are you sure you want to delete?`);
+    if (confirmDelete) {
+      dispatch(removeZone4Row(index));
+    }
+  };
 
   return (
     <div className="card">
-      <DataTableWrapper data={formData} columns={columns} />
+      <DataTableWrapper
+        data={formData}
+        columns={columns}
+        handleDelete={rowDeleteHandleFn}
+      />
     </div>
   );
 };

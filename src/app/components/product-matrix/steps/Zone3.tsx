@@ -28,7 +28,7 @@ const Zone3 = forwardRef((_, ref) => {
     },
     validateOnBlur: true,
     validateOnChange: true,
-    validationSchema: validationSchema,
+    // validationSchema: validationSchema,
     onSubmit: (values) => {
       dispatch(setZone3FormState(values));
       formik.resetForm();

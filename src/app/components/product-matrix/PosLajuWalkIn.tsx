@@ -15,6 +15,9 @@ import { Zone5 } from "./steps/Zone5";
 const PosLajuWalkIn: React.FC = () => {
   const [show, setShow] = useState(false);
   const [step, setStep] = useState(1);
+  const [selectedRowData, setSelectedRowData] = useState();
+  const [isEdited, setIsedited] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const stepLabels = ["Zone 1", "Zone 2", "Zone 3", "Zone 4", "Zone 5"];
   const isLastStep = step === 5;
@@ -42,7 +45,13 @@ const PosLajuWalkIn: React.FC = () => {
   const renderStep = () => {
     switch (step) {
       case 1:
-        return <Zone1 ref={stepRef} />;
+        return (
+          <Zone1
+            ref={stepRef}
+            selectedRowData={selectedRowData}
+            isEdited={isEdited}
+          />
+        );
       case 2:
         return <Zone2 ref={stepRef} />;
       case 3:
@@ -65,42 +74,66 @@ const PosLajuWalkIn: React.FC = () => {
             onClick={() => setShow(true)}
             className="btn btn-sm fw-bold btn-primary"
           >
-            Add Data
+            Add Product
+          </button>
+          <button
+            className="btn btn-primary btn-sm"
+            onClick={() => setIsModalOpen(true)}
+          >
+            View Columns
           </button>
         </div>
       </div>
+      <div className="flex-shrink-0 mb-4">
+        <ul className="nav">
+          <li className="nav-item">
+            <a
+              className="nav-link btn btn-sm btn-color-muted btn-active-color-primary btn-active-light active fw-semibold fs-7 px-4 me-1"
+              data-bs-toggle="tab"
+              href="#kt_tab_pane_1"
+            >
+              Zone 1 Within Klang Valley
+            </a>
+          </li>
 
-      <ul className="nav nav-tabs nav-line-tabs mb-5 fs-6">
-        <li className="nav-item">
-          <a
-            className="nav-link active"
-            data-bs-toggle="tab"
-            href="#kt_tab_pane_1"
-          >
-            Zone 1 Within Klang Valley
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_2">
-            Zone 2 Between State (Peninsular)
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_3">
-            Zone 3 Within State (Peninsular / Sabah / Sarawak)
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_4">
-            Zone 4 Peninsular to Sabah / Sarawak
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_5">
-            Zone 5 Sabah / Sarawak to Peninsular
-          </a>
-        </li>
-      </ul>
+          <li className="nav-item">
+            <a
+              className="nav-link btn btn-sm btn-color-muted btn-active-color-primary btn-active-light fw-semibold fs-7 px-4 me-1"
+              data-bs-toggle="tab"
+              href="#kt_tab_pane_2"
+            >
+              Zone 2 Between State (Peninsular)
+            </a>
+          </li>
+          <li className="nav-item">
+            <a
+              className="nav-link btn btn-sm btn-color-muted btn-active-color-primary btn-active-light fw-semibold fs-7 px-4"
+              data-bs-toggle="tab"
+              href="#kt_tab_pane_3"
+            >
+              Zone 3 Within State (Peninsular / Sabah / Sarawak)
+            </a>
+          </li>
+          <li className="nav-item">
+            <a
+              className="nav-link btn btn-sm btn-color-muted btn-active-color-primary btn-active-light fw-semibold fs-7 px-4"
+              data-bs-toggle="tab"
+              href="#kt_tab_pane_4"
+            >
+              Zone 4 Peninsular to Sabah / Sarawak
+            </a>
+          </li>
+          <li className="nav-item">
+            <a
+              className="nav-link btn btn-sm btn-color-muted btn-active-color-primary btn-active-light fw-semibold fs-7 px-4"
+              data-bs-toggle="tab"
+              href="#kt_tab_pane_5"
+            >
+              Zone 5 Sabah / Sarawak to Peninsular
+            </a>
+          </li>
+        </ul>
+      </div>
 
       <div className="tab-content" id="myTabContent">
         <div
@@ -108,7 +141,13 @@ const PosLajuWalkIn: React.FC = () => {
           id="kt_tab_pane_1"
           role="tabpanel"
         >
-          <WalkInZone1 />
+          <WalkInZone1
+            setSelectedRowData={setSelectedRowData}
+            setIsedited={setIsedited}
+            setShow={setShow}
+            isModalOpen={isModalOpen}
+            setIsModalOpen={setIsModalOpen}
+          />
         </div>
         <div className="tab-pane fade" id="kt_tab_pane_2" role="tabpanel">
           <WalkInZone2 />
@@ -123,7 +162,7 @@ const PosLajuWalkIn: React.FC = () => {
           <WalkInZone5 />
         </div>
       </div>
-      <ModalWrapper show={show} setShow={setShow} title="Zone">
+      <ModalWrapper show={show} setShow={setShow} title="Create Zone">
         <div className="stepper stepper-pills stepper-column">
           <div className="stepper-nav flex-row gap-10 justify-content-between">
             {stepLabels.map((label, index) => (
@@ -137,8 +176,8 @@ const PosLajuWalkIn: React.FC = () => {
                     : ""
                 }`}
               >
-                <div className="stepper-wrapper text-center flex-column gap-4">
-                  <div className="stepper-icon w-35px h-35px mr-0 rounded-circle">
+                <div className="stepper-wrapper text-center flex-column gap-2">
+                  <div className="stepper-icon w-30px h-30px mr-0 rounded-circle">
                     <i className="stepper-check fas fa-check"></i>
                     <span className="stepper-number">{index + 1}</span>
                   </div>
